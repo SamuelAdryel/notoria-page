@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notoria — Plano de Corte | Outubro 2026</title>
+<meta name="description" content="Plano de corte do Notoria: o que manter, congelar, matar e terminar — com prós, contras, métricas e o faturamento estimado dos concorrentes.">
+<meta name="theme-color" content="#05070d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;family=Fira+Code:wght@400;500;600&amp;family=Fira+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root{
+  --bg:#05070d; --bg2:#080c16; --surface:#0d1322; --surface2:#111a2e;
+  --line:rgba(148,163,184,.14); --line-strong:rgba(148,163,184,.26);
+  --text:#e8edf7; --muted:#94a3b8; --dim:#64748b;
+  --cyan:#22d3ee; --violet:#a78bfa; --gold:#f5c542; --red:#f87171; --green:#4ade80; --blue:#60a5fa;
+  --radius:18px; --radius-sm:12px; --max:1180px;
+  --font-display:"Cinzel",Georgia,serif; --font-body:"Fira Sans",system-ui,sans-serif; --font-mono:"Fira Code",monospace;
+  --shadow:0 24px 80px rgba(0,0,0,.45);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{
+  margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);
+  font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;
+  background:
+    radial-gradient(900px 600px at 12% -10%,rgba(34,211,238,.10),transparent 60%),
+    radial-gradient(900px 700px at 88% 8%,rgba(167,139,250,.12),transparent 60%),
+    radial-gradient(1000px 700px at 50% 110%,rgba(245,197,66,.06),transparent 60%);
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background-image:linear-gradient(rgba(148,163,184,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.035) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 0%,black,transparent 75%);
+  mask-image:radial-gradient(ellipse at 50% 0%,black,transparent 75%);
+}
+::selection{background:rgba(34,211,238,.28);color:#fff}
+h1,h2,h3,h4,p{margin:0}
+ul,ol{margin:0;padding:0}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{
+  position:fixed;top:12px;left:12px;z-index:200;padding:10px 14px;border-radius:8px;
+  background:var(--cyan);color:#05070d;font-weight:700;text-decoration:none;
+  transform:translateY(-160%);transition:transform .2s;
+}
+.skip-link:focus{transform:none}
+#progress{
+  position:fixed;top:0;left:0;height:3px;width:0;z-index:100;
+  background:linear-gradient(90deg,var(--cyan),var(--violet),var(--gold));
+  box-shadow:0 0 18px rgba(34,211,238,.5);
+}
+#particles{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.75}
+.nav{
+  position:fixed;top:3px;left:0;right:0;z-index:90;border-bottom:1px solid transparent;
+  transition:background .3s,border-color .3s,backdrop-filter .3s;
+}
+.nav.scrolled{background:rgba(5,7,13,.82);backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+.nav-inner{
+  max-width:var(--max);margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:0 0 auto}
+.brand-mark{
+  width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:var(--cyan);
+  background:linear-gradient(135deg,rgba(34,211,238,.16),rgba(167,139,250,.16));
+  border:1px solid rgba(34,211,238,.25);
+  animation:breathe 5s ease-in-out infinite;
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.05;font-family:var(--font-display);font-size:.95rem;letter-spacing:.14em}
+.brand-text small{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.2em;color:var(--dim);margin-top:4px}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{
+  position:relative;text-decoration:none;color:var(--muted);font-size:.8rem;font-weight:500;
+  padding:9px 10px;border-radius:8px;transition:color .2s,background .2s;white-space:nowrap;
+}
+.nav-links a:hover{color:var(--text);background:rgba(148,163,184,.06)}
+.nav-links a.active{color:var(--cyan)}
+.nav-links a.active::after{content:"";position:absolute;left:10px;right:10px;bottom:4px;height:1px;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.nav-actions{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.icon-btn{
+  width:44px;height:44px;border-radius:10px;border:1px solid var(--line);
+  background:rgba(13,19,34,.6);display:grid;place-items:center;cursor:pointer;
+  transition:color .2s,border-color .2s,background .2s;color:var(--muted);
+}
+.icon-btn:hover{color:var(--text);border-color:var(--line-strong);background:rgba(148,163,184,.08)}
+#motionBtn .icon-play{display:none}
+#motionBtn[aria-pressed="true"] .icon-pause{display:none}
+#motionBtn[aria-pressed="true"] .icon-play{display:block}
+#navToggle .icon-close{display:none}
+#navToggle[aria-expanded="true"] .icon-menu{display:none}
+#navToggle[aria-expanded="true"] .icon-close{display:block}
+.nav-toggle{display:none}
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;padding:132px 24px 92px;z-index:1;overflow:hidden}
+.hero-inner{width:100%;max-width:var(--max);display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:56px;align-items:center}
+.hero-copy{position:relative;z-index:2}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;margin:0 0 14px;
+  font-family:var(--font-mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);
+}
+.eyebrow::before{content:"";width:28px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent)}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.7rem,6.3vw,5.4rem);line-height:1.02;letter-spacing:-.03em;margin:18px 0 22px;text-wrap:balance}
+.grad{
+  background:linear-gradient(110deg,var(--cyan),var(--violet) 55%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;
+  animation:gradientShift 8s ease-in-out infinite;
+}
+.hero-sub{max-width:620px;color:var(--muted);font-size:clamp(1rem,1.3vw,1.12rem);line-height:1.7}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:13px 20px;border-radius:11px;text-decoration:none;font-weight:600;font-size:.9rem;
+  letter-spacing:.01em;border:1px solid transparent;cursor:pointer;
+  transition:transform .2s,box-shadow .2s,background .2s,border-color .2s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--cyan),var(--violet));color:#05070d;box-shadow:0 12px 36px rgba(34,211,238,.18)}
+.btn-primary:hover{box-shadow:0 16px 46px rgba(34,211,238,.28)}
+.btn-ghost{border-color:var(--line-strong);color:var(--text);background:rgba(13,19,34,.45)}
+.btn-ghost:hover{border-color:rgba(34,211,238,.4);background:rgba(34,211,238,.06)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:44px;max-width:660px}
+.stat{padding:14px 14px 13px;border:1px solid var(--line);border-radius:12px;background:rgba(13,19,34,.45);backdrop-filter:blur(8px)}
+.stat-num{display:block;font-family:var(--font-mono);font-size:clamp(1.15rem,1.8vw,1.5rem);font-weight:600;line-height:1.1}
+.stat-label{display:block;margin-top:5px;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);line-height:1.35}
+.hero-visual{position:relative;min-height:430px;display:grid;place-items:center}
+.orb{
+  position:absolute;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,rgba(34,211,238,.35),rgba(167,139,250,.18) 45%,transparent 70%);
+  filter:blur(18px);animation:floatY 9s ease-in-out infinite;
+}
+.score-card{
+  position:relative;width:min(100%,390px);border:1px solid rgba(148,163,184,.2);border-radius:18px;
+  background:linear-gradient(160deg,rgba(17,26,46,.96),rgba(8,12,22,.96));
+  box-shadow:var(--shadow);overflow:hidden;animation:floatCard 7s ease-in-out infinite;
+}
+.score-card::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,rgba(34,211,238,.08),transparent 40%,rgba(245,197,66,.05))}
+.score-top{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line);font-family:var(--font-mono);font-size:.68rem;color:var(--dim)}
+.dots{display:flex;gap:5px}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(148,163,184,.25)}
+.staff{position:relative;height:220px;margin:22px 18px;background-image:repeating-linear-gradient(to bottom,transparent 0 43px,rgba(148,163,184,.28) 43px 44px)}
+.note{position:absolute;width:13px;height:9px;border-radius:50%;background:var(--cyan);transform:rotate(-18deg);box-shadow:0 0 12px rgba(34,211,238,.5);animation:pulseNote 3.6s ease-in-out infinite}
+.note::after{content:"";position:absolute;right:1px;bottom:5px;width:2px;height:28px;background:inherit;border-radius:2px}
+.note.violet{background:var(--violet);box-shadow:0 0 12px rgba(167,139,250,.5)}
+.note.gold{background:var(--gold);box-shadow:0 0 12px rgba(245,197,66,.5)}
+.score-bottom{display:flex;gap:8px;padding:0 18px 18px}
+.tag{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.06em;padding:5px 8px;border-radius:6px;border:1px solid;text-transform:uppercase}
+.tag.cyan{color:var(--cyan);border-color:rgba(34,211,238,.3);background:rgba(34,211,238,.06)}
+.tag.violet{color:var(--violet);border-color:rgba(167,139,250,.3);background:rgba(167,139,250,.06)}
+.tag.gold{color:var(--gold);border-color:rgba(245,197,66,.3);background:rgba(245,197,66,.06)}
+.float-chip{
+  position:absolute;z-index:2;font-family:var(--font-mono);font-size:.66rem;padding:8px 11px;border-radius:9px;
+  border:1px solid var(--line-strong);background:rgba(8,12,22,.88);backdrop-filter:blur(10px);
+  color:var(--muted);box-shadow:0 12px 30px rgba(0,0,0,.3);animation:floatY 6s ease-in-out infinite;
+}
+.chip-a{top:6%;left:-9%;color:var(--cyan);border-color:rgba(34,211,238,.3)}
+.chip-b{bottom:13%;right:-4%;color:var(--violet);border-color:rgba(167,139,250,.3);animation-delay:-2s}
+.chip-c{bottom:2%;left:4%;color:var(--red);border-color:rgba(248,113,113,.3);animation-delay:-4s}
+.scroll-hint{
+  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;
+  align-items:center;gap:7px;color:var(--dim);font-family:var(--font-mono);font-size:.58rem;
+  letter-spacing:.2em;text-transform:uppercase;pointer-events:none;
+}
+.scroll-hint span{width:1px;height:30px;background:linear-gradient(180deg,var(--cyan),transparent);animation:scrollHint 2.4s ease-in-out infinite}
+.section{position:relative;padding:104px 24px;z-index:1}
+.section-inner{max-width:var(--max);margin:0 auto}
+.section-title{font-family:var(--font-display);font-size:clamp(2rem,4.2vw,3.5rem);line-height:1.08;letter-spacing:-.025em;margin:0 0 18px;text-wrap:balance}
+.section-title .muted-title{color:var(--dim)}
+.section-lead{max-width:760px;color:var(--muted);font-size:1.04rem;line-height:1.7}
+.mt-16{margin-top:16px}.mt-24{margin-top:24px}.mt-32{margin-top:32px}.mt-42{margin-top:42px}.mt-48{margin-top:48px}
+.mono{font-family:var(--font-mono)}
+.muted{color:var(--muted)}
+.small{font-size:.85rem}
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+.js .reveal.d1{transition-delay:.06s}.js .reveal.d2{transition-delay:.12s}.js .reveal.d3{transition-delay:.18s}.js .reveal.d4{transition-delay:.24s}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes floatCard{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(-1.4deg)}}
+@keyframes breathe{0%,100%{box-shadow:0 0 0 0 rgba(34,211,238,0)}50%{box-shadow:0 0 24px rgba(34,211,238,.25)}}
+@keyframes gradientShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes pulseNote{0%,100%{opacity:.55;transform:rotate(-18deg) scale(.9)}50%{opacity:1;transform:rotate(-18deg) scale(1.05)}}
+@keyframes scrollHint{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(6px);opacity:.9}}
+.card{
+  position:relative;overflow:hidden;padding:28px;border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(180deg,rgba(17,26,46,.88),rgba(10,14,26,.9));
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet),transparent)}
+.card:hover{transform:translateY(-4px);border-color:var(--line-strong);box-shadow:var(--shadow)}
+.card-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.card-head h3{font-family:var(--font-display);font-size:1.3rem;letter-spacing:-.01em}
+.icon{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;border:1px solid;flex:0 0 auto}
+.icon.green{color:var(--green);border-color:rgba(74,222,128,.25);background:rgba(74,222,128,.07)}
+.icon.red{color:var(--red);border-color:rgba(248,113,113,.25);background:rgba(248,113,113,.07)}
+.icon.cyan{color:var(--cyan);border-color:rgba(34,211,238,.25);background:rgba(34,211,238,.07)}
+.icon.gold{color:var(--gold);border-color:rgba(245,197,66,.25);background:rgba(245,197,66,.07)}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.list{list-style:none;display:grid;gap:12px}
+.list li{position:relative;padding-left:26px;color:var(--muted);font-size:.93rem;line-height:1.55}
+.list.check li::before{content:"";position:absolute;left:3px;top:.42em;width:6px;height:11px;border-right:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(42deg)}
+.list.cross li::before{content:"";position:absolute;left:3px;top:.72em;width:11px;height:2px;background:var(--red);transform:rotate(45deg)}
+.list.cross li::after{content:"";position:absolute;left:3px;top:.72em;width:11px;height:2px;background:var(--red);transform:rotate(-45deg)}
+.list.dot li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--accent,var(--cyan));box-shadow:0 0 8px rgba(34,211,238,.4)}
+.badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:999px;border:1px solid}
+.badge.red{color:var(--red);border-color:rgba(248,113,113,.3);background:rgba(248,113,113,.07)}
+.badge.cyan{color:var(--cyan);border-color:rgba(34,211,238,.3);background:rgba(34,211,238,.07)}
+.badge.gold{color:var(--gold);border-color:rgba(245,197,66,.3);background:rgba(245,197,66,.07)}
+.badge.green{color:var(--green);border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.07)}
+.evidence-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:32px}
+.evidence-item{padding:18px;border:1px solid var(--line);border-radius:14px;background:rgba(13,19,34,.72)}
+.evidence-item code{display:block;font-family:var(--font-mono);font-size:.68rem;line-height:1.5;color:var(--cyan);word-break:break-word}
+.evidence-item p{margin-top:9px;font-size:.83rem;line-height:1.55;color:var(--muted)}
+.quote{
+  margin:48px 0 0;padding:34px;border-left:3px solid var(--gold);border-radius:0 18px 18px 0;
+  background:linear-gradient(90deg,rgba(245,197,66,.08),transparent);
+  font-family:var(--font-display);font-size:clamp(1.3rem,2.4vw,2rem);line-height:1.3;color:var(--text);
+}
+.quote small{display:block;margin-top:14px;font-family:var(--font-body);font-size:.72rem;color:var(--dim);letter-spacing:.14em;text-transform:uppercase}
+.question-card{
+  margin-top:28px;padding:28px;border:1px dashed rgba(245,197,66,.35);border-radius:18px;
+  background:rgba(245,197,66,.04);display:flex;gap:20px;align-items:flex-start;
+}
+.q-mark{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(245,197,66,.4);color:var(--gold);font-family:var(--font-display);font-size:1.3rem;background:rgba(245,197,66,.08)}
+.question-card h3{font-family:var(--font-display);font-size:1.25rem;margin-bottom:6px}
+.question-card p{color:var(--muted);font-size:.92rem}
+.cut-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:42px}
+.cut-col{position:relative;overflow:hidden;padding:22px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(17,26,46,.82),rgba(8,12,22,.86))}
+.cut-col::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent,var(--cyan))}
+.cut-col.keep{--accent:var(--green)}.cut-col.freeze{--accent:var(--blue)}.cut-col.kill{--accent:var(--red)}.cut-col.finish{--accent:var(--gold)}
+.cut-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.cut-label{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.cut-count{font-family:var(--font-mono);font-size:.65rem;color:var(--dim)}
+.cut-col h3{font-family:var(--font-display);font-size:1.45rem;margin:8px 0 4px}
+.cut-col > p{font-size:.8rem;color:var(--dim);line-height:1.45}
+.cut-col .list{margin-top:18px;gap:9px}
+.cut-col .list li{font-size:.84rem;line-height:1.45;padding-left:20px}
+.rule-banner{
+  display:flex;align-items:center;gap:16px;margin-top:28px;padding:20px 24px;border-radius:16px;
+  border:1px solid rgba(34,211,238,.3);
+  background:linear-gradient(90deg,rgba(34,211,238,.10),rgba(167,139,250,.08));
+  font-weight:600;font-size:.95rem;
+}
+.rule-banner span{flex:0 0 auto;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(34,211,238,.35);padding:5px 8px;border-radius:6px}
+.product-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;margin-top:42px}
+.product-card{position:relative;overflow:hidden;padding:30px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,rgba(17,26,46,.9),rgba(8,12,22,.92))}
+.product-card.recommended{border-color:rgba(34,211,238,.4);box-shadow:0 0 0 1px rgba(34,211,238,.12),0 28px 80px rgba(34,211,238,.08)}
+.product-badge{position:absolute;top:18px;right:18px;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#05070d;background:linear-gradient(135deg,var(--cyan),var(--violet));padding:5px 9px;border-radius:6px;font-weight:700}
+.product-kicker{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+.product-card h3{font-family:var(--font-display);font-size:clamp(1.6rem,2.6vw,2.1rem);letter-spacing:-.02em;margin-bottom:10px}
+.product-pitch{color:var(--muted);font-size:.94rem;line-height:1.6}
+.meta-list{display:grid;gap:10px;margin:22px 0}
+.meta-list div{display:grid;grid-template-columns:86px 1fr;gap:12px;font-size:.88rem}
+.meta-list dt{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);padding-top:3px}
+.meta-list dd{margin:0;color:var(--text)}
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:18px;border-top:1px solid var(--line);padding-top:20px}
+.pros-cons h4{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;color:var(--dim)}
+.pros-cons .list li{font-size:.82rem}
+.compare-wrap{margin-top:34px;overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:rgba(13,19,34,.7)}
+.table-hint{display:none}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line);font-size:.88rem;vertical-align:top}
+th{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);background:rgba(148,163,184,.04)}
+td:first-child{color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.col-a{color:var(--cyan)}
+.recommendation{margin-top:28px;padding:26px;border:1px solid rgba(74,222,128,.3);border-radius:16px;background:linear-gradient(90deg,rgba(74,222,128,.08),rgba(34,211,238,.04));display:flex;gap:18px;align-items:flex-start}
+.recommendation h3{font-family:var(--font-display);font-size:1.2rem;margin-bottom:6px}
+.recommendation p{color:var(--muted);font-size:.9rem}
+.timeline{position:relative;margin-top:42px;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cyan),var(--violet),var(--gold),transparent)}
+.tl-item{position:relative;padding:0 0 30px 26px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:-33px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--accent,var(--cyan));border:2px solid var(--bg);box-shadow:0 0 0 4px rgba(148,163,184,.1),0 0 18px rgba(34,211,238,.28)}
+.tl-item.acc-cyan{--accent:var(--cyan)}.tl-item.acc-violet{--accent:var(--violet)}.tl-item.acc-gold{--accent:var(--gold)}.tl-item.acc-green{--accent:var(--green)}
+.tl-week{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent,var(--cyan))}
+.tl-content h3{font-family:var(--font-display);font-size:1.22rem;margin:6px 0 5px}
+.tl-content p{color:var(--muted);font-size:.9rem;max-width:780px}
+.tl-hours{display:inline-block;margin-top:9px;font-family:var(--font-mono);font-size:.62rem;color:var(--dim);border:1px solid var(--line);padding:3px 8px;border-radius:999px}
+.note-card{margin-top:28px;padding:22px 26px;border:1px solid rgba(245,197,66,.28);border-radius:14px;background:rgba(245,197,66,.05);color:var(--muted);font-size:.9rem}
+.note-card strong{color:var(--gold)}
+.metric-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;margin-top:42px;align-items:start}
+.funnel{padding:28px}
+.funnel h3{font-family:var(--font-display);font-size:1.35rem;margin-bottom:6px}
+.funnel-sub{font-size:.8rem;color:var(--dim);margin-bottom:22px}
+.funnel-row{display:grid;grid-template-columns:104px 1fr 52px;gap:12px;align-items:center;margin-top:14px}
+.funnel-label{font-size:.82rem;color:var(--muted)}
+.funnel-bar{height:12px;border-radius:999px;background:rgba(148,163,184,.08);overflow:hidden}
+.funnel-bar i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--cyan),var(--blue));transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.funnel-row:nth-child(4) .funnel-bar i{background:linear-gradient(90deg,var(--blue),var(--violet))}
+.funnel-row:nth-child(5) .funnel-bar i{background:linear-gradient(90deg,var(--violet),#c084fc)}
+.funnel-row:nth-child(6) .funnel-bar i{background:linear-gradient(90deg,var(--gold),#fb923c)}
+.funnel-row:nth-child(7) .funnel-bar i{background:linear-gradient(90deg,var(--gold),var(--green))}
+.funnel-value{font-family:var(--font-mono);font-size:.78rem;text-align:right;color:var(--text)}
+.metric-side{display:grid;gap:16px}
+.target-card{padding:26px;border-radius:18px;border:1px solid rgba(34,211,238,.25);background:linear-gradient(135deg,rgba(34,211,238,.12),rgba(167,139,250,.10))}
+.target-card .kicker{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+.target-number{font-family:var(--font-display);font-size:clamp(2rem,3.4vw,2.9rem);line-height:1;letter-spacing:-.02em}
+.target-card p{margin-top:10px;font-size:.84rem;color:var(--muted)}
+.criteria-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.criteria{padding:22px;border:1px solid var(--line);border-top:3px solid var(--accent,var(--cyan));border-radius:16px;background:linear-gradient(180deg,rgba(17,26,46,.78),rgba(8,12,22,.82))}
+.criteria.continue{--accent:var(--green)}.criteria.park{--accent:var(--gold)}.criteria.pivot{--accent:var(--violet)}
+.criteria .verdict{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.criteria h3{font-family:var(--font-display);font-size:1.2rem;margin:7px 0 6px}
+.criteria p{font-size:.85rem;color:var(--muted)}
+.chart{padding:26px}
+.chart + .chart{margin-top:22px}
+.chart-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:22px}
+.chart-head h3{font-family:var(--font-display);font-size:1.25rem}
+.chart-head span{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
+.chart-note{font-size:.76rem;color:var(--dim);margin-top:16px;line-height:1.55}
+.chart-row{display:grid;grid-template-columns:138px 1fr 84px;gap:14px;align-items:center;margin-top:16px}
+.chart-label{font-size:.84rem;color:var(--muted)}
+.chart-track{height:14px;background:rgba(148,163,184,.08);border-radius:999px;overflow:hidden}
+.chart-fill{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--cyan),var(--blue));transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+.chart-fill.violet{background:linear-gradient(90deg,var(--violet),var(--blue))}
+.chart-fill.gold{background:linear-gradient(90deg,var(--gold),#fb923c)}
+.chart-value{font-family:var(--font-mono);font-size:.78rem;text-align:right;color:var(--text);white-space:nowrap}
+.avg-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+.avg-card{padding:20px;border:1px solid var(--line);border-radius:14px;background:rgba(13,19,34,.7)}
+.avg-card span{display:block;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+.avg-card strong{display:block;font-family:var(--font-display);font-size:1.45rem;line-height:1.1}
+.avg-card small{display:block;margin-top:7px;font-size:.72rem;color:var(--dim);line-height:1.45}
+.comp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.comp-card{padding:22px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(17,26,46,.82),rgba(8,12,22,.86))}
+.comp-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.comp-name{font-family:var(--font-display);font-size:1.18rem;line-height:1.2}
+.comp-model{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);text-align:right;max-width:110px}
+.comp-rev{font-family:var(--font-mono);font-size:.82rem;color:var(--cyan);margin:12px 0 2px}
+.comp-price{font-size:.75rem;color:var(--dim)}
+.comp-list{margin-top:16px;border-top:1px solid var(--line);padding-top:14px;display:grid;gap:10px}
+.comp-list h4{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.comp-list p{font-size:.78rem;color:var(--muted);line-height:1.5}
+.comp-list p strong{color:var(--text);font-weight:500}
+.model-table{margin-top:22px}
+.decision-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:42px}
+.decision-card{position:relative;overflow:hidden;padding:24px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(17,26,46,.82),rgba(8,12,22,.86))}
+.decision-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent,var(--cyan))}
+.decision-card.continue{--accent:var(--green)}.decision-card.park{--accent:var(--gold)}.decision-card.pivot{--accent:var(--violet)}
+.decision-card .verdict{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.decision-card h3{font-family:var(--font-display);font-size:1.3rem;margin:8px 0 10px}
+.decision-card p{font-size:.86rem;color:var(--muted)}
+.decision-card .list{margin-top:16px;gap:8px}
+.decision-card .list li{font-size:.8rem}
+.checklist{margin-top:42px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(13,19,34,.66)}
+.checklist-head{padding:22px 26px;border-bottom:1px solid var(--line);background:rgba(148,163,184,.035)}
+.checklist-head h3{font-family:var(--font-display);font-size:1.3rem}
+.checklist-head p{font-size:.84rem;color:var(--dim);margin-top:4px}
+.check-item{display:flex;gap:16px;align-items:flex-start;padding:18px 26px;border-bottom:1px solid var(--line)}
+.check-item:last-child{border-bottom:0}
+.check-num{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;font-family:var(--font-mono);font-size:.72rem;color:var(--cyan);border:1px solid rgba(34,211,238,.3);background:rgba(34,211,238,.06)}
+.check-item h4{font-size:.94rem;margin-bottom:3px}
+.check-item p{font-size:.82rem;color:var(--muted)}
+footer{position:relative;z-index:1;padding:76px 24px 44px;border-top:1px solid var(--line);background:rgba(5,7,13,.6)}
+.footer-inner{max-width:var(--max);margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;flex-wrap:wrap}
+.footer-title{font-family:var(--font-display);font-size:1.5rem;line-height:1.2;max-width:520px}
+.footer-title span{color:var(--dim)}
+.footer-meta{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);text-align:right;line-height:1.8}
+.sources-label{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin:36px 0 12px}
+.sources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 24px}
+.sources a{color:var(--muted);text-decoration:none;font-size:.8rem;line-height:1.5;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.sources a:hover{color:var(--cyan);border-bottom-color:rgba(34,211,238,.4)}
+.disclaimer{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);font-size:.76rem;color:var(--dim);line-height:1.6;max-width:900px}
+.back-top{
+  position:fixed;right:22px;bottom:22px;z-index:80;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line-strong);background:rgba(13,19,34,.9);color:var(--text);
+  display:grid;place-items:center;opacity:0;pointer-events:none;transform:translateY(10px);
+  transition:opacity .25s,transform .25s,border-color .25s;cursor:pointer;backdrop-filter:blur(10px);
+}
+.back-top:hover{border-color:rgba(34,211,238,.4);color:var(--cyan)}
+.back-top.show{opacity:1;pointer-events:auto;transform:none}
+html[data-motion="off"] .score-card,html[data-motion="off"] .orb,html[data-motion="off"] .brand-mark,html[data-motion="off"] .note,html[data-motion="off"] .float-chip,html[data-motion="off"] .grad,html[data-motion="off"] .scroll-hint span{animation:none!important}
+html[data-motion="off"] .grad{background-position:0 50%}
+html[data-motion="off"] .reveal{opacity:1!important;transform:none!important}
+html[data-motion="off"] #particles{display:none}
+html[data-motion="off"] .chart-fill,html[data-motion="off"] .funnel-bar i{transition:none!important}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .score-card,.orb,.brand-mark,.note,.float-chip,.grad,.scroll-hint span{animation:none!important}
+  .chart-fill,.funnel-bar i{transition:none!important}
+}
+@media (max-width:1100px){
+  .cut-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .comp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:1000px){
+  .hero-inner{grid-template-columns:1fr;gap:36px}
+  .hero{min-height:auto;padding-top:122px}
+  .hero-visual{min-height:360px}
+  .hero-stats{max-width:none}
+  .metric-layout{grid-template-columns:1fr}
+  .product-grid{grid-template-columns:1fr}
+  .evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .criteria-grid{grid-template-columns:1fr}
+  .decision-grid{grid-template-columns:1fr}
+  .sources{grid-template-columns:1fr}
+}
+@media (max-width:920px){
+  .nav-toggle{display:grid}
+  .nav-links{
+    position:absolute;top:calc(100% + 8px);left:16px;right:16px;display:none;
+    flex-direction:column;align-items:stretch;gap:2px;padding:10px;
+    background:rgba(8,12,22,.98);border:1px solid var(--line);border-radius:14px;
+    box-shadow:var(--shadow);backdrop-filter:blur(18px);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 14px;border-radius:10px;font-size:.9rem}
+  .nav-links a.active::after{left:14px;right:14px;bottom:7px}
+}
+@media (max-width:720px){
+  .section{padding:78px 20px}
+  .hero{padding:112px 20px 74px}
+  .grid-2{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-visual{min-height:320px}
+  .scroll-hint{display:none}
+  .staff{height:180px}
+  .float-chip{display:none}
+  .quote{padding:26px 22px}
+  .question-card,.recommendation{flex-direction:column;gap:14px}
+  .pros-cons{grid-template-columns:1fr}
+  .cut-grid{grid-template-columns:1fr}
+  .evidence-grid{grid-template-columns:1fr}
+  .rule-banner{flex-direction:column;align-items:flex-start;gap:10px}
+  .table-hint{display:block;margin:34px 4px 8px;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);text-align:right}
+  .table-hint + .compare-wrap{margin-top:0}
+  .model-table table{min-width:820px}
+  .back-top{display:none}
+  .chart-row{grid-template-columns:96px 1fr 68px;gap:9px}
+  .chart-label{font-size:.76rem}
+  .chart-value{font-size:.7rem}
+  .avg-grid{grid-template-columns:1fr}
+  .comp-grid{grid-template-columns:1fr}
+  .funnel-row{grid-template-columns:92px 1fr 48px;gap:8px}
+  .funnel-label{font-size:.76rem}
+  .footer-top{flex-direction:column}
+  .footer-meta{text-align:left}
+  .sources{grid-template-columns:1fr}
+  .nav-inner{padding:12px 16px}
+  .brand-text{font-size:.85rem}
+}
+@media (max-width:420px){
+  .hero h1{font-size:2.5rem}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .stat{padding:12px}
+  .chart-row{grid-template-columns:1fr 64px;gap:6px}
+  .chart-label{grid-column:1 / -1}
+  .chart-track{grid-column:1 / 2}
+  .chart-value{grid-column:2 / 3;grid-row:2}
+  .funnel-row{grid-template-columns:84px 1fr 44px}
+}
+@media (max-width:340px){
+  .hero h1{font-size:2.4rem}
+  .hero .eyebrow{font-size:.62rem;letter-spacing:.12em}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<div id="progress" aria-hidden="true"></div>
+<canvas id="particles" aria-hidden="true"></canvas>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Notoria — Plano de Corte">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </span>
+      <span class="brand-text">NOTORIA<small>PLANO DE CORTE</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Seções">
+      <a href="#diagnostico">Diagnóstico</a>
+      <a href="#corte">O corte</a>
+      <a href="#produto">Produto</a>
+      <a href="#dias">90 dias</a>
+      <a href="#metricas">Métricas</a>
+      <a href="#concorrentes">Concorrentes</a>
+      <a href="#decisao">Decisão</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="motionBtn" type="button" aria-pressed="false" aria-label="Pausar animações" title="Pausar animações">
+        <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="8" y="5" width="3" height="14" rx="1"/><rect x="14" y="5" width="3" height="14" rx="1"/></svg>
+        <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menu">
+        <svg class="icon-menu" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="conteudo">
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow reveal">Plano de corte · Outubro 2026</p>
+      <h1 id="hero-title" class="reveal d1">O problema do <span class="grad">Notoria</span> não é código.<br>É <span style="color:var(--gold)">escopo</span>.</h1>
+      <p class="hero-sub reveal d2">Um plano honesto para transformar um repositório de 108 mil linhas em um produto que cabe em 5 horas por semana — com prós, contras e a realidade financeira dos concorrentes.</p>
+      <div class="hero-ctas reveal d3">
+        <a class="btn btn-primary" href="#corte">Ler o plano
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#concorrentes">Ver concorrentes</a>
+      </div>
+      <div class="hero-stats reveal d4">
+        <div class="stat"><span class="stat-num" data-count="108298">0</span><span class="stat-label">linhas no frontend</span></div>
+        <div class="stat"><span class="stat-num" data-count="5" data-suffix="h">0</span><span class="stat-label">por semana</span></div>
+        <div class="stat"><span class="stat-num" data-count="1">0</span><span class="stat-label">modo viável</span></div>
+        <div class="stat"><span class="stat-num" data-count="1990" data-prefix="R$ ">0</span><span class="stat-label">meta por mês</span></div>
+      </div>
+      <p class="small muted mt-24 reveal d4">Sem PvP. Sem campanha. Sem promessa que o produto não cumpre.</p>
+    </div>
+    <div class="hero-visual reveal d2" aria-hidden="true">
+      <div class="orb"></div>
+      <div class="score-card">
+        <div class="score-top"><span>notoria_practice.tsx</span><span class="dots"><i></i><i></i><i></i></span></div>
+        <div class="staff">
+          <span class="note" style="left:14%;top:28px;animation-delay:-.4s"></span>
+          <span class="note violet" style="left:27%;top:72px;animation-delay:-1.1s"></span>
+          <span class="note" style="left:41%;top:50px;animation-delay:-1.8s"></span>
+          <span class="note gold" style="left:55%;top:116px;animation-delay:-.8s"></span>
+          <span class="note" style="left:69%;top:94px;animation-delay:-2.2s"></span>
+          <span class="note violet" style="left:83%;top:160px;animation-delay:-1.5s"></span>
+        </div>
+        <div class="score-bottom"><span class="tag cyan">MIDI</span><span class="tag violet">MusicXML</span><span class="tag gold">loop 50–100%</span></div>
+      </div>
+      <div class="float-chip chip-a">108k linhas</div>
+      <div class="float-chip chip-b">2 músicas</div>
+      <div class="float-chip chip-c">0 checkout</div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><span></span>deslize</div>
+</section>
+<section class="section" id="diagnostico" aria-labelledby="diag-title">
+  <div class="section-inner">
+    <p class="eyebrow reveal">01 · Diagnóstico</p>
+    <h2 class="section-title reveal" id="diag-title">Um portfólio forte.<br><span class="muted-title">Um produto pela metade.</span></h2>
+    <p class="section-lead reveal d1">O Notoria já tem mais infraestrutura do que a maioria dos side projects chega a ter: autenticação, banco, deploy, admin, testes e um motor de prática que reconhece MIDI e lê MusicXML. O que ele não tem é um produto terminado.</p>
+    <div class="grid-2 mt-42">
+      <article class="card reveal">
+        <div class="card-head">
+          <span class="icon green" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <h3>O que já existe</h3>
+        </div>
+        <ul class="list check">
+          <li>Motor de prática com entrada MIDI, parser MusicXML, piano roll e feedback de notas.</li>
+          <li>Autenticação, banco, deploy, painel admin e specs bem documentadas.</li>
+          <li>Landing, onboarding e uma identidade visual que já parece produto.</li>
+          <li>108 mil linhas de frontend e 9 mil de backend — trabalho real, não protótipo.</li>
+          <li>Testes automatizados e histórico de produção em Vercel e Fly.io.</li>
+        </ul>
+      </article>
+      <article class="card reveal d1">
+        <div class="card-head">
+          <span class="icon red" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20L12 3Z"/><path d="M12 9v5"/><circle cx="12" cy="17.5" r=".7" fill="currentColor" stroke="none"/></svg></span>
+          <h3>O que não existe</h3>
+        </div>
+        <ul class="list cross">
+          <li>Campanha sem gameplay: a área de jogo é uma div vazia e o placar do oponente é aleatório.</li>
+          <li>Duas músicas em <span class="mono">public/music</span> — uma delas é arquivo de teste.</li>
+          <li>Checkout Stripe é um alerta de “em breve”; o backend só devolve <span class="mono">{ upgraded: true }</span>.</li>
+          <li>Ranking da landing é fictício quando a API está vazia.</li>
+          <li>PvP depende de mock queue e simulação de oponente.</li>
+          <li>Copy promete PvP ao vivo, campanha e catálogo que o produto não entrega.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="evidence-grid">
+      <article class="evidence-item reveal"><span class="badge red">vazio</span><code>BattleCampaign/index.tsx:130</code><p>O modo campanha renderiza uma div vazia. Não há notas, input nem música.</p></article>
+      <article class="evidence-item reveal d1"><span class="badge red">2 arquivos</span><code>public/music/</code><p>Só duas MXL: uma sonata e um arquivo de teste. Conteúdo é o gargalo.</p></article>
+      <article class="evidence-item reveal d2"><span class="badge gold">stub</span><code>useSubscribePage.ts:5–6</code><p>O botão de assinatura dispara um alerta de “Stripe em breve”.</p></article>
+      <article class="evidence-item reveal"><span class="badge red">fictício</span><code>landing-ranking-fictional.ts:7</code><p>O ranking da landing usa nomes inventados quando a API está vazia.</p></article>
+      <article class="evidence-item reveal d1"><span class="badge gold">mock</span><code>useBattlePvp.ts:132</code><p>Fila e oponente simulados por configuração. O PvP real não está pronto.</p></article>
+      <article class="evidence-item reveal d2"><span class="badge red">inconsistente</span><code>pricing + docs</code><p>O site fala em 3 vidas na campanha; os docs falam em modo sem energia. Copy sem fonte única.</p></article>
+    </div>
+    <blockquote class="quote reveal">“Você não tem um problema de engenharia. Tem um problema de foco, conteúdo e distribuição.”<small>O veredito em uma frase</small></blockquote>
+    <div class="question-card reveal">
+      <div class="q-mark" aria-hidden="true">?</div>
+      <div>
+        <h3>A pergunta que define o plano</h3>
+        <p>Você quer que o Notoria dê dinheiro ou exista? As duas respostas são válidas — mas levam a caminhos diferentes. Este plano assume a primeira: um produto pequeno, terminado e vendável.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="corte" aria-labelledby="corte-title">
+  <div class="section-inner">
+    <p class="eyebrow reveal">02 · O corte</p>
+    <h2 class="section-title reveal" id="corte-title">Quatro listas.<br><span class="muted-title">Uma decisão.</span></h2>
+    <p class="section-lead reveal d1">Cortar não é desistir. É escolher onde o produto pode ganhar. Tudo que não serve ao fluxo de prática sai da v1 — sem exceção, sem “depois eu volto”.</p>
+    <div class="cut-grid">
+      <article class="cut-col keep reveal">
+        <div class="cut-top"><span class="cut-label">Manter</span><span class="cut-count">7 itens</span></div>
+        <h3>O que paga a conta</h3>
+        <p>Base técnica e valor central.</p>
+        <ul class="list dot">
+          <li>Auth Supabase, banco e deploy.</li>
+          <li>Motor de prática: MIDI, MusicXML, piano roll, score.</li>
+          <li>Onboarding de 3 passos.</li>
+          <li>5 músicas de domínio público.</li>
+          <li>Landing + demo sem login.</li>
+          <li>Pricing corrigido e honesto.</li>
+          <li>Analytics + feedback in-app.</li>
+        </ul>
+      </article>
+      <article class="cut-col freeze reveal d1">
+        <div class="cut-top"><span class="cut-label">Congelar</span><span class="cut-count">6 frentes</span></div>
+        <h3>O que distrai</h3>
+        <p>Fica no repo, fora da v1.</p>
+        <ul class="list dot">
+          <li>PvP, matchmaking, fila, revanche, ligas e amigos.</li>
+          <li>Campanha, mapas, reinos, bosses, classes e lore.</li>
+          <li>Cosméticos, temas, efeitos, battle pass e temporadas.</li>
+          <li>Segundo instrumento, microfone polifônico e mobile completo.</li>
+          <li>i18n en-US.</li>
+          <li>Admin de campanha, usuários e promoções de XP.</li>
+        </ul>
+      </article>
+      <article class="cut-col kill reveal d2">
+        <div class="cut-top"><span class="cut-label">Morrer</span><span class="cut-count">6 vícios</span></div>
+        <h3>O que quebra confiança</h3>
+        <p>Remover hoje, não esconder.</p>
+        <ul class="list dot">
+          <li>Ranking fictício na landing.</li>
+          <li>Botão de Stripe que só mostra alerta.</li>
+          <li>Copy de “PvP ao vivo” e “catálogo completo”.</li>
+          <li>Rotas quebradas de campanha e PvP.</li>
+          <li>Mock queue e oponente simulado.</li>
+          <li>Qualquer “em breve” no fluxo de compra.</li>
+        </ul>
+      </article>
+      <article class="cut-col finish reveal d3">
+        <div class="cut-top"><span class="cut-label">Terminar</span><span class="cut-count">6 entregas</span></div>
+        <h3>O que vira produto</h3>
+        <p>O caminho até a primeira receita.</p>
+        <ul class="list dot">
+          <li>Fluxo único: landing → demo → conta → assinatura.</li>
+          <li>5 músicas tocáveis de ponta a ponta.</li>
+          <li>Loop de trecho, velocidade 50–100%, mãos separadas.</li>
+          <li>Progresso local e retomada.</li>
+          <li>Checkout Stripe/Mercado Pago com Pix.</li>
+          <li>Feedback + waitlist para a próxima versão.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="rule-banner reveal">
+      <span>Regra de ouro</span>
+      Nenhuma feature nova até 100 sessões completas de usuários externos.
+    </div>
+  </div>
+</section>
+<section class="section" id="produto" aria-labelledby="produto-title">
+  <div class="section-inner">
+    <p class="eyebrow reveal">03 · Produto</p>
+    <h2 class="section-title reveal" id="produto-title">Dois caminhos.<br><span class="muted-title">Um deles cabe em 5h.</span></h2>
+    <p class="section-lead reveal d1">A escolha não é entre ideias boas. É entre escopos que você consegue terminar. O produto A reutiliza o que já existe; o B exige construir um jogo inteiro — e vender um jogo é outro trabalho.</p>
+    <div class="product-grid">
+      <article class="product-card recommended reveal">
+        <div class="product-badge">Recomendado</div>
+        <p class="product-kicker">Produto A</p>
+        <h3>Notoria Practice</h3>
+        <p class="product-pitch">Pratique qualquer partitura MusicXML no navegador, com seu teclado MIDI, loop, velocidade ajustável e feedback em tempo real.</p>
+        <dl class="meta-list">
+          <div><dt>Público</dt><dd>Pianistas iniciantes e intermediários com MIDI ou MuseScore; professores.</dd></div>
+          <div><dt>Modelo</dt><dd>Free com 1 música + 1 import; Pro R$19,90/mês ou R$149/ano; professor depois.</dd></div>
+          <div><dt>Canal</dt><dd>SEO pt-BR, comunidades de piano/teclado e professores. Sem calls.</dd></div>
+        </dl>
+        <div class="pros-cons">
+          <div>
+            <h4>Prós</h4>
+            <ul class="list check">
+              <li>Reutiliza o motor que já existe.</li>
+              <li>Self-serve e sem suporte complexo.</li>
+              <li>Valor claro: praticar a própria partitura.</li>
+              <li>Privacidade e preço local em pt-BR.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contras</h4>
+            <ul class="list cross">
+              <li>Mercado de prática é competitivo.</li>
+              <li>Conteúdo é o gargalo real.</li>
+              <li>Retenção exige hábito semanal.</li>
+              <li>TAM menor que o de um jogo.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article class="product-card reveal d1">
+        <p class="product-kicker">Produto B</p>
+        <h3>Notoria: First Concert</h3>
+        <p class="product-pitch">Um jogo curto de ritmo e leitura musical, single-player, com 5–8 músicas de domínio público e uma mecânica bem feita.</p>
+        <dl class="meta-list">
+          <div><dt>Público</dt><dd>Jogadores casuais, fãs de rhythm games e curiosos por música.</dd></div>
+          <div><dt>Modelo</dt><dd>Demo grátis no itch.io; pago US$5–10. Steam só com 500 wishlists/100 plays.</dd></div>
+          <div><dt>Canal</dt><dd>itch.io, TikTok/YouTube e comunidades de rhythm game.</dd></div>
+        </dl>
+        <div class="pros-cons">
+          <div>
+            <h4>Prós</h4>
+            <ul class="list check">
+              <li>Escopo fechado: começo, meio e fim.</li>
+              <li>Portfólio muito mais forte.</li>
+              <li>Distribuição simples no itch.io.</li>
+              <li>Potencial viral se a mecânica for boa.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contras</h4>
+            <ul class="list cross">
+              <li>Receita pontual, sem recorrência.</li>
+              <li>Depende de plataforma e algoritmo.</li>
+              <li>Marketing de jogo é muito barulhento.</li>
+              <li>Exige arte, som, fases e polimento.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="table-hint">Deslize para comparar A e B →</p>
+    <div class="compare-wrap reveal">
+      <table>
+        <caption class="sr-only">Comparação entre Notoria Practice e Notoria: First Concert</caption>
+        <thead><tr><th scope="col">Critério</th><th scope="col" class="col-a">A · Practice</th><th scope="col">B · First Concert</th></tr></thead>
+        <tbody>
+          <tr><td>Esforço até a v1</td><td class="col-a">Médio</td><td>Alto</td></tr>
+          <tr><td>Tempo até a primeira receita</td><td class="col-a">6–10 semanas</td><td>3–6 meses</td></tr>
+          <tr><td>Recorrência</td><td class="col-a">Sim</td><td>Não</td></tr>
+          <tr><td>Conteúdo necessário</td><td class="col-a">5 músicas</td><td>5–8 fases</td></tr>
+          <tr><td>Risco de distração</td><td class="col-a">Baixo</td><td>Alto</td></tr>
+          <tr><td>Potencial de portfólio</td><td class="col-a">Médio</td><td>Alto</td></tr>
+          <tr><td>Teto de receita</td><td class="col-a">Menor (nicho)</td><td>Maior (se viralizar)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="recommendation reveal">
+      <span class="icon green" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+      <div>
+        <h3>Comece por A.</h3>
+        <p>Se em 90 dias os números não justificarem, o motor e as músicas viram a base de B — sem desperdiçar o trabalho. O contrário não é verdade: um jogo inacabado não vira ferramenta de prática sozinho.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="dias" aria-labelledby="dias-title">
+  <div class="section-inner">
+    <p class="eyebrow reveal">04 · Execução</p>
+    <h2 class="section-title reveal" id="dias-title">90 dias.<br><span class="muted-title">~65 horas.</span></h2>
+    <p class="section-lead reveal d1">O plano assume 5h/semana. Cada bloco de duas semanas soma 10h — cinco blocos, mais três semanas de 5h, totalizando ~65h. Se o motor estiver menos pronto, reduza o número de músicas; nunca a distribuição.</p>
+    <div class="timeline">
+      <article class="tl-item acc-cyan reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <span class="tl-week">Semana 1</span>
+          <h3>Corte e instrumentação</h3>
+          <p>Remove PvP, campanha e ranking fictício do fluxo. Define as 5 músicas. Instala analytics e um feedback de uma pergunta.</p>
+          <span class="tl-hours">5h</span>
+        </div>
+      </article>
+      <article class="tl-item acc-violet reveal d1">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <span class="tl-week">Semanas 2–3</span>
+          <h3>Uma música de ponta a ponta</h3>
+          <p>Landing → demo sem login → tocar → resultado → conta. Uma música perfeita vale mais que cinco pela metade.</p>
+          <span class="tl-hours">10h no bloco</span>
+        </div>
+      </article>
+      <article class="tl-item acc-gold reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <span class="tl-week">Semana 4</span>
+          <h3>Teste com 5 pessoas</h3>
+          <p>Observa onde travam, corrige o onboarding e coleta 3 feedbacks. Nada de feature nova antes disso.</p>
+          <span class="tl-hours">5h</span>
+        </div>
+      </article>
+      <article class="tl-item acc-cyan reveal d1">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <span class="tl-week">Semanas 5–6</span>
+          <h3>Cinco músicas + progresso</h3>
+          <p>Loop de trecho, velocidade 50–100%, mãos separadas e retomada de onde parou.</p>
+          <span class="tl-hours">10h no bloco</span>
+        </div>
+      </article>
+      <article class="tl-item acc-violet reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <span class="tl-week">Semanas 7–8</span>
+          <h3>Soft launch</h3>
+          <p>Publica em 3 comunidades de piano/teclado. Mede demo start, completion e retorno no D7.</p>
+          <span class="tl-hours">10h no bloco</span>
+        </div>
+      </article>
+      <article class="tl-item acc-gold reveal d1">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <span class="tl-week">Semanas 9–10</span>
+          <h3>Checkout e pré-venda</h3>
+          <p>Stripe ou Mercado Pago com Pix. Uma oferta, um preço. Coleta 10 feedbacks e abre waitlist.</p>
+          <span class="tl-hours">10h no bloco</span>
+        </div>
+      </article>
+      <article class="tl-item acc-green reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <span class="tl-week">Semanas 11–12</span>
+          <h3>Distribuição</h3>
+          <p>SEO pt-BR, vídeos curtos e contato assíncrono com 5 professores. Sem calls, sem proposta customizada.</p>
+          <span class="tl-hours">10h no bloco</span>
+        </div>
+      </article>
+      <article class="tl-item acc-cyan reveal d1">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <span class="tl-week">Semana 13</span>
+          <h3>Decisão</h3>
+          <p>Compara os números com os critérios da seção de métricas. Continua, park ou pivota — sem sequestrar mais 90 dias.</p>
+          <span class="tl-hours">5h</span>
+        </div>
+      </article>
+    </div>
+    <div class="note-card reveal"><strong>Total: 5 blocos de 10h + 3 semanas de 5h = ~65 horas.</strong> Se o motor estiver menos pronto, corte para 3 músicas. Não corte distribuição — é ela que gera os dados da decisão.</div>
+  </div>
+</section>
+<section class="section" id="metricas" aria-labelledby="metricas-title">
+  <div class="section-inner">
+    <p class="eyebrow reveal">05 · Métricas</p>
+    <h2 class="section-title reveal" id="metricas-title">O que mede.<br><span class="muted-title">O que decide.</span></h2>
+    <p class="section-lead reveal d1">Não mede vaidade. Mede se alguém volta, completa e paga. O funil abaixo é a única coisa que importa nos primeiros 90 dias.</p>
+    <div class="metric-layout">
+      <div class="funnel card reveal">
+        <h3>Funil por 100 visitas</h3>
+        <p class="funnel-sub">Barras mostram o % acumulado de visitas. Pagamento é medido sobre demos iniciados.</p>
+        <div class="funnel-row"><span class="funnel-label">Visita</span><div class="funnel-bar"><i data-width="100"></i></div><span class="funnel-value">100%</span></div>
+        <div class="funnel-row"><span class="funnel-label">Inicia demo</span><div class="funnel-bar"><i data-width="30"></i></div><span class="funnel-value">30%</span></div>
+        <div class="funnel-row"><span class="funnel-label">Começa música</span><div class="funnel-bar"><i data-width="18"></i></div><span class="funnel-value">18%</span></div>
+        <div class="funnel-row"><span class="funnel-label">Completa</span><div class="funnel-bar"><i data-width="9"></i></div><span class="funnel-value">9%</span></div>
+        <div class="funnel-row"><span class="funnel-label">Volta no D7</span><div class="funnel-bar"><i data-width="2"></i></div><span class="funnel-value">2%</span></div>
+        <p class="chart-note">Meta de pagamento: 2–5 pagantes a cada 100 demos iniciados. Com 100 demos, a meta é 3+ pagantes.</p>
+      </div>
+      <div class="metric-side">
+        <div class="target-card reveal d1">
+          <p class="kicker">Primeira meta</p>
+          <p class="target-number">R$ 1.990</p>
+          <p>100 assinantes × R$19,90/mês. Não é participação de mercado — é validação de que alguém paga pelo problema.</p>
+        </div>
+        <div class="card reveal d2">
+          <div class="card-head">
+            <span class="icon gold" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+            <h3>Escala simples</h3>
+          </div>
+          <ul class="list dot">
+            <li>100 assinantes = R$1.990/mês.</li>
+            <li>300 assinantes = R$5.970/mês.</li>
+            <li>1.000 assinantes = R$19.900/mês.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="criteria-grid">
+      <article class="criteria continue reveal">
+        <span class="verdict">Continuar</span>
+        <h3>Os números apareceram</h3>
+        <p>≥100 demos iniciados, ≥50 sessões completas, ≥10 voltas no D7, ≥3 pagantes ou pré-vendas e ≥10 feedbacks.</p>
+      </article>
+      <article class="criteria park reveal d1">
+        <span class="verdict">Park</span>
+        <h3>O sinal não veio</h3>
+        <p>&lt;50 demos, &lt;20 sessões completas, &lt;5 voltas no D7 ou zero pagantes. Congela o projeto sem culpa e sem novas features.</p>
+      </article>
+      <article class="criteria pivot reveal d2">
+        <span class="verdict">Pivot</span>
+        <h3>Uso alto, receita zero</h3>
+        <p>≥100 demos e ≥50 completas, mas ninguém paga. Muda oferta, preço ou público — não adiciona PvP de novo.</p>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section" id="concorrentes" aria-labelledby="conc-title">
+  <div class="section-inner">
+    <p class="eyebrow reveal">06 · Concorrentes</p>
+    <h2 class="section-title reveal" id="conc-title">A realidade.<br><span class="muted-title">Com asteriscos.</span></h2>
+    <p class="section-lead reveal d1">Faturamento estimado não é lucro. Médias escondem outliers e empresas que não divulgam números. Use os dados como ordem de magnitude — não como promessa.</p>
+    <div class="note-card reveal"><strong>Aviso metodológico:</strong> os números abaixo vêm de estimativas públicas de anos diferentes (2022–2026), não de balanços auditados de todas as empresas. Receita bruta não desconta app stores, impostos, marketing, conteúdo e equipe. Comparar dólar com real sem ajuste de poder de compra também engana.</div>
+    <div class="chart card reveal mt-32">
+      <div class="chart-head"><h3>Faturamento anual estimado — apps de aprendizado</h3><span>US$ / ano</span></div>
+      <div class="chart-row"><span class="chart-label">Simply Piano</span><div class="chart-track"><i class="chart-fill" data-width="100"></i></div><span class="chart-value">~$200M</span></div>
+      <div class="chart-row"><span class="chart-label">Yousician</span><div class="chart-track"><i class="chart-fill violet" data-width="28.5"></i></div><span class="chart-value">~$57M</span></div>
+      <div class="chart-row"><span class="chart-label">Flowkey</span><div class="chart-track"><i class="chart-fill gold" data-width="5.5"></i></div><span class="chart-value">~$11M</span></div>
+      <p class="chart-note">Simply é outlier de capital e marketing. Flowkey divulga apenas “oito dígitos” de receita. Escala do gráfico relativa a US$200M.</p>
+    </div>
+    <div class="avg-grid">
+      <div class="avg-card reveal"><span>Média do trio</span><strong>~$89M/ano</strong><small>Distorcida por Simply. Não é benchmark para um side project.</small></div>
+      <div class="avg-card reveal d1"><span>Mediana do trio</span><strong>~$57M/ano</strong><small>Mais representativa de um negócio maduro de assinatura.</small></div>
+      <div class="avg-card reveal d2"><span>Sem o outlier</span><strong>~$34M/ano</strong><small>Yousician + Flowkey. Ainda é outro jogo de capital.</small></div>
+    </div>
+    <div class="comp-grid">
+      <article class="comp-card reveal">
+        <div class="comp-top"><h3 class="comp-name">Simply Piano</h3><span class="comp-model">Assinatura B2C</span></div>
+        <p class="comp-rev">~$200M / ano</p>
+        <p class="comp-price">Modelo mensal/anual · app stores</p>
+        <div class="comp-list">
+          <h4>Prós</h4><p><strong>Marca global</strong>, gamificação madura e distribuição massiva.</p>
+          <h4>Contras</h4><p>CAC alto, conteúdo constante e dependência de plataformas.</p>
+        </div>
+      </article>
+      <article class="comp-card reveal d1">
+        <div class="comp-top"><h3 class="comp-name">Yousician</h3><span class="comp-model">Assinatura multi-instrumento</span></div>
+        <p class="comp-rev">~$57M / ano (€53M)</p>
+        <p class="comp-price">Assinatura · vários instrumentos</p>
+        <div class="comp-list">
+          <h4>Prós</h4><p><strong>Portfólio amplo</strong>, produção musical e marca consolidada.</p>
+          <h4>Contras</h4><p>Churn, custo alto de conteúdo e concorrência direta.</p>
+        </div>
+      </article>
+      <article class="comp-card reveal d2">
+        <div class="comp-top"><h3 class="comp-name">Flowkey</h3><span class="comp-model">Assinatura piano</span></div>
+        <p class="comp-rev">~$11M / ano (€10M+)</p>
+        <p class="comp-price">Assinatura · foco em piano</p>
+        <div class="comp-list">
+          <h4>Prós</h4><p><strong>Foco</strong>, boa UX e lucratividade reportada em 2022.</p>
+          <h4>Contras</h4><p>Nicho, teto de mercado e dependência de aquisição paga.</p>
+        </div>
+      </article>
+      <article class="comp-card reveal">
+        <div class="comp-top"><h3 class="comp-name">Piano Marvel</h3><span class="comp-model">Assinatura + escolas</span></div>
+        <p class="comp-rev">Receita não divulgada</p>
+        <p class="comp-price">US$17,99/mês · 25 mil músicas</p>
+        <div class="comp-list">
+          <h4>Prós</h4><p><strong>Canal institucional</strong>, catálogo de 25 mil músicas e 1.200+ exercícios.</p>
+          <h4>Contras</h4><p>UX datada, marca menor e suporte a professores/escolas.</p>
+        </div>
+      </article>
+      <article class="comp-card reveal d1">
+        <div class="comp-top"><h3 class="comp-name">Soundslice</h3><span class="comp-model">Ferramenta + professor</span></div>
+        <p class="comp-rev">Receita não divulgada</p>
+        <p class="comp-price">US$5/mês · Professor US$20/mês (100 alunos)</p>
+        <div class="comp-list">
+          <h4>Prós</h4><p><strong>Nicho lucrativo</strong>, import de MusicXML/PDF, loop e SEO forte.</p>
+          <h4>Contras</h4><p>TAM menor, produto técnico e pouca gamificação.</p>
+        </div>
+      </article>
+      <article class="comp-card reveal d2">
+        <div class="comp-top"><h3 class="comp-name">Synthesia</h3><span class="comp-model">Licença única</span></div>
+        <p class="comp-rev">Receita não divulgada</p>
+        <p class="comp-price">US$29–39 único · 150 músicas · desktop</p>
+        <div class="comp-list">
+          <h4>Prós</h4><p><strong>Base fiel</strong>, sem assinatura e suporte a MIDI/MusicXML.</p>
+          <h4>Contras</h4><p>Receita não recorrente, concorrência free e plataforma desktop.</p>
+        </div>
+      </article>
+    </div>
+    <h3 class="section-title reveal" style="font-size:clamp(1.6rem,2.8vw,2.2rem);margin-top:48px">Jogos indie: pico, não recorrência.</h3>
+    <p class="section-lead reveal d1">O outro caminho possível. Os números são de vida útil, não por ano — e um lançamento viral pode esconder dezenas de jogos que não venderam.</p>
+    <div class="chart card reveal mt-32">
+      <div class="chart-head"><h3>Jogos indie de ritmo — estimativa lifetime</h3><span>US$ / vida útil</span></div>
+      <div class="chart-row"><span class="chart-label">A Dance of Fire and Ice</span><div class="chart-track"><i class="chart-fill" data-width="100"></i></div><span class="chart-value">~$6,2M</span></div>
+      <div class="chart-row"><span class="chart-label">Melatonin</span><div class="chart-track"><i class="chart-fill violet" data-width="50.7"></i></div><span class="chart-value">~$3,2M</span></div>
+      <p class="chart-note">ADOFAI: ~1,71M unidades e US$6,21M brutos (SteamData.AI); estimativas altas chegam a ~US$28M. Melatonin: ~271,3k unidades e US$3,15M; Sensor Tower estima ~US$2,7M. Trombone Champ: 20 mil downloads na primeira semana, feito por um dev solo em noites e fins de semana por 3–4 anos.</p>
+    </div>
+    <div class="avg-grid">
+      <div class="avg-card reveal"><span>Média base</span><strong>~$4,7M</strong><small>ADOFAI + Melatonin, lifetime. Dois dados não fazem mercado.</small></div>
+      <div class="avg-card reveal d1"><span>Mediana base</span><strong>~$4,7M</strong><small>Com dois pontos, a mediana é a mesma média. Cuidado.</small></div>
+      <div class="avg-card reveal d2"><span>Com ADOFAI alta</span><strong>~$15,6M</strong><small>Usando ~$28M para ADOFAI. O outlier muda tudo.</small></div>
+    </div>
+    <div class="card reveal mt-32">
+      <div class="card-head">
+        <span class="icon cyan" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        <h3>Você não precisa de US$89M. Precisa de 100 clientes.</h3>
+      </div>
+      <ul class="list dot">
+        <li>Simply e Yousician são outliers de capital e marketing. Não são benchmark de side project.</li>
+        <li>Soundslice e Piano Marvel mostram que nicho + retenção + canal sustentam um negócio menor.</li>
+        <li>ADOFAI e Melatonin mostram picos, não recorrência. Um jogo pago vende uma vez.</li>
+        <li>100 × R$19,90 = R$1.990/mês. Essa é a primeira meta — não a média do mercado.</li>
+      </ul>
+    </div>
+    <p class="table-hint">Deslize para ver todas as colunas →</p>
+    <div class="compare-wrap model-table reveal">
+      <table>
+        <caption class="sr-only">Comparação entre modelos de negócio</caption>
+        <thead><tr><th scope="col">Modelo</th><th scope="col">Recorrência</th><th scope="col">Risco principal</th><th scope="col">Exemplo</th><th scope="col">Lição</th></tr></thead>
+        <tbody>
+          <tr><td>Assinatura B2C</td><td>Alta</td><td>CAC e churn</td><td>Simply, Yousician</td><td>Precisa de volume e marketing.</td></tr>
+          <tr><td>Ferramenta de nicho</td><td>Alta</td><td>TAM menor</td><td>Soundslice</td><td>Retenção e SEO valem mais que escala.</td></tr>
+          <tr><td>Jogo premium</td><td>Baixa</td><td>Plataforma e algoritmo</td><td>ADOFAI, Melatonin</td><td>Pico e comunidade; sem recorrência.</td></tr>
+          <tr><td>B2B professores/escolas</td><td>Alta</td><td>Ciclo de venda e suporte</td><td>Piano Marvel</td><td>Contrato resolve CAC, mas exige suporte.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-card reveal"><strong>Leitura honesta:</strong> as médias dizem que existe mercado, não que existe espaço para você. O que decide é a sua capacidade de terminar, distribuir e reter — com 5 horas por semana.</div>
+  </div>
+</section>
+<section class="section" id="decisao" aria-labelledby="dec-title">
+  <div class="section-inner">
+    <p class="eyebrow reveal">07 · Decisão</p>
+    <h2 class="section-title reveal" id="dec-title">Qual versão do Notoria<br><span class="muted-title">você consegue terminar?</span></h2>
+    <p class="section-lead reveal d1">Não é sobre o que o Notoria poderia ser. É sobre o que você consegue entregar, medir e sustentar. O plano só vale se terminar em uma decisão.</p>
+    <div class="decision-grid">
+      <article class="decision-card continue reveal">
+        <span class="verdict">Continuar</span>
+        <h3>Vire um produto</h3>
+        <p>Se os critérios forem atingidos, dobre a aposta: mais músicas, import de partituras e plano professor.</p>
+        <ul class="list dot">
+          <li>Próximo passo: 3 meses de distribuição.</li>
+          <li>Foco em retenção e import.</li>
+          <li>Sem PvP até o produto pagar a conta.</li>
+        </ul>
+      </article>
+      <article class="decision-card park reveal d1">
+        <span class="verdict">Park</span>
+        <h3>Congele sem culpa</h3>
+        <p>Se o sinal não veio, pare. O código, as specs e o motor continuam no portfólio. Notoria pode voltar quando houver tempo ou sócio.</p>
+        <ul class="list dot">
+          <li>Nada de features “para ver se melhora”.</li>
+          <li>Documente o aprendizado.</li>
+          <li>Reavalie em 6 meses.</li>
+        </ul>
+      </article>
+      <article class="decision-card pivot reveal d2">
+        <span class="verdict">Pivot</span>
+        <h3>Mude a oferta</h3>
+        <p>Se o uso é alto e a receita é zero, o problema é oferta, preço ou público. Teste uma promessa mais estreita antes de adicionar features.</p>
+        <ul class="list dot">
+          <li>Mude o público, não o escopo.</li>
+          <li>Teste preço e promessa.</li>
+          <li>Não volte ao PvP por ansiedade.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="checklist reveal">
+      <div class="checklist-head">
+        <h3>Esta semana</h3>
+        <p>Três tarefas. Nada além disso.</p>
+      </div>
+      <div class="check-item">
+        <span class="check-num">01</span>
+        <div><h4>Remova o que mente</h4><p>PvP, campanha e ranking fictício saem do fluxo. O site não promete o que não entrega.</p></div>
+      </div>
+      <div class="check-item">
+        <span class="check-num">02</span>
+        <div><h4>Instrumente 5 eventos</h4><p>Visita, demo start, música start, complete e checkout. Sem analytics, não há decisão.</p></div>
+      </div>
+      <div class="check-item">
+        <span class="check-num">03</span>
+        <div><h4>Publique uma música</h4><p>Demo sem login, uma música, um feedback. O resto espera.</p></div>
+      </div>
+    </div>
+    <blockquote class="quote reveal">“O Notoria não precisa de mais 108 mil linhas. Precisa de uma versão que alguém consiga terminar.”<small>O corte</small></blockquote>
+    <div class="hero-ctas reveal">
+      <a class="btn btn-primary" href="#top">Voltar ao início
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#corte">Rever o corte</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <p class="footer-title">Um plano para decidir.<br><span>Não para impressionar.</span></p>
+      <div class="footer-meta">Notoria · Plano de corte<br>Outubro de 2026<br>Feito para 5h/semana</div>
+    </div>
+    <p class="sources-label">Fontes e estimativas</p>
+    <div class="sources">
+      <a href="https://getlatka.com/companies/simply" target="_blank" rel="noopener noreferrer">GetLatka — Simply Piano (~$200M/ano, dez/2024)</a>
+      <a href="https://flowdial.io/en/company/yousician-oy-2374364-0/" target="_blank" rel="noopener noreferrer">Flowdial — Yousician (€53,0M, 2025)</a>
+      <a href="https://www.deutsche-startups.de/2022/11/04/flowkey-klavier-app/" target="_blank" rel="noopener noreferrer">Deutsche Startups — Flowkey (€10M+, 2022)</a>
+      <a href="https://www.pianomarvel.com/pricing" target="_blank" rel="noopener noreferrer">Piano Marvel — preços e catálogo</a>
+      <a href="https://www.soundslice.com/plans/" target="_blank" rel="noopener noreferrer">Soundslice — planos</a>
+      <a href="https://synthesiagame.com/" target="_blank" rel="noopener noreferrer">Synthesia — produto e preço</a>
+      <a href="https://steamdata.ai/game/977950/a-dance-of-fire-and-ice" target="_blank" rel="noopener noreferrer">SteamData.AI — A Dance of Fire and Ice</a>
+      <a href="https://gamemetrics.info/game/1585220/melatonin" target="_blank" rel="noopener noreferrer">GameMetrics — Melatonin</a>
+      <a href="https://www.theguardian.com/games/2022/sep/26/trombone-champ-creator-dan-vecchitto-interview" target="_blank" rel="noopener noreferrer">The Guardian — Trombone Champ</a>
+      <a href="https://upbeat.studio/lab/the-online-music-learning-landscape/" target="_blank" rel="noopener noreferrer">Upbeat Studio — panorama do mercado</a>
+    </div>
+    <p class="disclaimer">Faturamento estimado por terceiros; não é lucro. Médias escondem outliers e empresas que não divulgam números. Dados de acesso em outubro de 2026. Este documento é uma ferramenta de decisão, não uma previsão financeira. O diagnóstico do Notoria foi feito a partir do repositório local e do site público.</p>
+  </div>
+</footer>
+<button class="back-top" id="backTop" type="button" aria-label="Voltar ao topo">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function () {
+  'use strict';
+
+  var root = document.documentElement;
+  var motionBtn = document.getElementById('motionBtn');
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  var progress = document.getElementById('progress');
+  var nav = document.getElementById('nav');
+  var backTop = document.getElementById('backTop');
+  var canvas = document.getElementById('particles');
+  var reduceQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var reduce = reduceQuery.matches;
+  var motion = !reduce;
+  var particleFrame = 0;
+  var particleResize = null;
+
+  try {
+    var saved = localStorage.getItem('notoria-motion');
+    if (saved === 'off') motion = false;
+    if (saved === 'on' && !reduce) motion = true;
+  } catch (error) {}
+
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  var counters = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+  var bars = Array.prototype.slice.call(document.querySelectorAll('.chart-fill[data-width], .funnel-bar i[data-width]'));
+
+  function formatValue(el, value) {
+    var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var prefix = el.getAttribute('data-prefix') || '';
+    var suffix = el.getAttribute('data-suffix') || '';
+    return prefix + value.toLocaleString('pt-BR', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals
+    }) + suffix;
+  }
+
+  function animateCounter(el) {
+    if (el.getAttribute('data-done') === '1') return;
+    el.setAttribute('data-done', '1');
+    var target = parseFloat(el.getAttribute('data-count'));
+    if (!isFinite(target)) return;
+    if (!motion) {
+      el.textContent = formatValue(el, target);
+      return;
+    }
+    var duration = 1400;
+    var start = performance.now();
+    function tick(now) {
+      if (!motion) return;
+      var p = Math.min((now - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = formatValue(el, target * eased);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function finalCounters() {
+    counters.forEach(function (el) {
+      var target = parseFloat(el.getAttribute('data-count'));
+      el.setAttribute('data-done', '1');
+      if (isFinite(target)) el.textContent = formatValue(el, target);
+    });
+  }
+
+  function showBar(el) {
+    if (el.getAttribute('data-done') === '1') return;
+    el.setAttribute('data-done', '1');
+    el.style.width = el.getAttribute('data-width') + '%';
+  }
+
+  function finalBars() {
+    bars.forEach(showBar);
+  }
+
+  function startParticles() {
+    if (!motion || reduce || !canvas || particleFrame) return;
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    var width = 0;
+    var height = 0;
+    var dpr = 1;
+    var particles = [];
+
+    function setup() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var count = Math.min(46, Math.max(16, Math.floor(width / 34)));
+      particles = [];
+      for (var i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: Math.random() * 1.5 + 0.35,
+          vx: (Math.random() - 0.5) * 0.16,
+          vy: -(Math.random() * 0.28 + 0.06),
+          a: Math.random() * 0.34 + 0.06,
+          color: Math.random() > 0.55 ? '34,211,238' : (Math.random() > 0.5 ? '167,139,250' : '245,197,66')
+        });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.y < -8) { p.y = height + 8; p.x = Math.random() * width; }
+        if (p.x < -8) p.x = width + 8;
+        if (p.x > width + 8) p.x = -8;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + p.color + ',' + p.a + ')';
+        ctx.fill();
+      }
+      particleFrame = requestAnimationFrame(draw);
+    }
+
+    setup();
+    draw();
+    particleResize = setup;
+    window.addEventListener('resize', particleResize, { passive: true });
+  }
+
+  function stopParticles() {
+    if (particleFrame) cancelAnimationFrame(particleFrame);
+    particleFrame = 0;
+    if (particleResize) {
+      window.removeEventListener('resize', particleResize);
+      particleResize = null;
+    }
+    if (canvas) {
+      var ctx = canvas.getContext('2d');
+      if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  }
+
+  function applyMotion(persist) {
+    root.setAttribute('data-motion', motion ? 'on' : 'off');
+    root.style.scrollBehavior = motion ? 'smooth' : 'auto';
+    if (motionBtn) {
+      motionBtn.setAttribute('aria-pressed', String(!motion));
+      motionBtn.setAttribute('aria-label', motion ? 'Pausar animações' : 'Retomar animações');
+      motionBtn.title = motion ? 'Pausar animações' : 'Retomar animações';
+    }
+    if (!motion) {
+      reveals.forEach(function (el) { el.classList.add('in'); });
+      finalCounters();
+      finalBars();
+      stopParticles();
+    } else {
+      startParticles();
+    }
+    if (persist) {
+      try { localStorage.setItem('notoria-motion', motion ? 'on' : 'off'); } catch (error) {}
+    }
+  }
+
+  if (motionBtn) {
+    motionBtn.addEventListener('click', function () {
+      motion = !motion;
+      applyMotion(true);
+    });
+  }
+
+  if ('IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(function (el) { revealObserver.observe(el); });
+
+    var counterObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.45 });
+    counters.forEach(function (el) { counterObserver.observe(el); });
+
+    var barObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          showBar(entry.target);
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.35 });
+    bars.forEach(function (el) { barObserver.observe(el); });
+
+    var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+    var sectionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var hash = '#' + entry.target.id;
+          links.forEach(function (link) {
+            link.classList.toggle('active', link.getAttribute('href') === hash);
+          });
+        }
+      });
+    }, { rootMargin: '-38% 0px -55% 0px', threshold: 0 });
+    sections.forEach(function (section) { sectionObserver.observe(section); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+    finalCounters();
+    finalBars();
+  }
+
+  if (navToggle && navLinks) {
+    function closeMenu() {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Abrir menu');
+    }
+    navToggle.addEventListener('click', function () {
+      var open = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    });
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && navLinks.classList.contains('open')) closeMenu();
+    });
+    document.addEventListener('click', function (event) {
+      if (navLinks.classList.contains('open') && !navLinks.contains(event.target) && !navToggle.contains(event.target)) {
+        closeMenu();
+      }
+    });
+  }
+
+  var ticking = false;
+  function updateScroll() {
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - doc.clientHeight;
+    var y = window.pageYOffset || doc.scrollTop || 0;
+    if (progress) progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+    if (nav) nav.classList.toggle('scrolled', y > 24);
+    if (backTop) backTop.classList.toggle('show', y > 640);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(updateScroll);
+    }
+  }, { passive: true });
+  updateScroll();
+
+  if (backTop) {
+    backTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: motion ? 'smooth' : 'auto' });
+    });
+  }
+
+  applyMotion(false);
+})();
+</script>
+</body>
+</html>
